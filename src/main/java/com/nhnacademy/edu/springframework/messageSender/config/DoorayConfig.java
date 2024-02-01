@@ -32,7 +32,6 @@ public class DoorayConfig {
 
     @Bean
     public MessageSendService messageSendService(){
-
         return new MessageSendService(doorayMessageSender());
     }
 
