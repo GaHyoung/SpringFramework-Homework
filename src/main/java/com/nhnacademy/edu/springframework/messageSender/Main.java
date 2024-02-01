@@ -10,13 +10,13 @@ public class Main {
     public static void main(String[] args) {
 
         User user = new User(
-                "남가형",
-                "test"
+                "가형"
         );
+        String message = "message";
 
         try(AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DoorayConfig.class)){
             MessageSendService messageSendService = context.getBean(MessageSendService.class);
-            messageSendService.doMessage(user, user.getMessage());
+            messageSendService.doMessage(user, message);
         }
 
     }

@@ -17,10 +17,9 @@ import static org.mockito.Mockito.*;
 class DoorayMessageSenderTest {
 
     User user = new User(
-            "남가형",
-            "hi"
+            "남가형"
     );
-    DoorayHook doorayHook;
+    String message = "message";
 
     @InjectMocks
     private DoorayMessageSender doorayMessageSender;
@@ -37,7 +36,7 @@ class DoorayMessageSenderTest {
     void sendMessage() {
         doNothing().when(doorayHookSender).send(any());
 
-        boolean actual = doorayMessageSender.sendMessage(user, user.getMessage());
+        boolean actual = doorayMessageSender.sendMessage(user, message);
 
         verify(doorayHookSender).send(any());
         assertTrue(actual);
