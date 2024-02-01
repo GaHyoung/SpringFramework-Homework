@@ -2,7 +2,8 @@ package com.nhnacademy.edu.springframework.messageSender.service;
 
 import com.nhn.dooray.client.DoorayHook;
 import com.nhn.dooray.client.DoorayHookSender;
-import com.nhnacademy.edu.springframework.messageSender.User;
+import com.nhnacademy.edu.springframework.messageSender.annotation.Auditable;
+import com.nhnacademy.edu.springframework.messageSender.domain.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
@@ -25,11 +26,13 @@ public class DoorayMessageSender implements MessageSender{
     }
 
     @Override
-    public void sendMessage(User user, String message) {
+    @Auditable
+    public boolean sendMessage(User user, String message) {
             doorayHookSender
                 .send(DoorayHook.builder()
                 .botName(name)
                 .text(talk)
                 .build());
+            return true;
     }
 }
