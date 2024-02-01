@@ -15,8 +15,7 @@ public class ExecutionTimeAspect {
         stopWatch.start();
 
         try{
-            Object executionTime = joinPoint.proceed();
-            return executionTime;
+            return joinPoint.proceed();
         }catch (Throwable throwable){
             System.out.println(throwable.getMessage());
             throw throwable;

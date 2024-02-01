@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 @PropertySource("classpath:dooray.properties")
-@EnableAspectJAutoProxy
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 public class DoorayConfig {
 
     @Value("${hookUrl}")
@@ -21,6 +21,7 @@ public class DoorayConfig {
 
     @Bean
     public DoorayHookSender doorayHookSender(){
+
         return new DoorayHookSender(new RestTemplate(), hookUrl);
     }
 
@@ -31,6 +32,7 @@ public class DoorayConfig {
 
     @Bean
     public MessageSendService messageSendService(){
+
         return new MessageSendService(doorayMessageSender());
     }
 
