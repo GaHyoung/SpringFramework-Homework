@@ -22,11 +22,12 @@ public class DoorayMessageSender implements MessageSender{
 
     @Override
     @Auditable
-    public void sendMessage(User user, String message) {
+    public boolean sendMessage(User user, String message) {
             doorayHookSender
                 .send(DoorayHook.builder()
                 .botName(name)
                 .text(talk)
                 .build());
+            return true;
     }
 }

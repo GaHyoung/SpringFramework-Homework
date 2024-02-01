@@ -26,7 +26,7 @@ public class ExecutionTimeAspect {
             throw throwable;
         }finally {
             stopWatch.stop();
-            System.out.printf("%s.%s %dms%n",
+            System.out.printf("[%s].[%s] [%d]ms%n",
                     joinPoint.getTarget().getClass().getName(),
                     joinPoint.getSignature().getName(),
                     stopWatch.getTotalTimeMillis());
