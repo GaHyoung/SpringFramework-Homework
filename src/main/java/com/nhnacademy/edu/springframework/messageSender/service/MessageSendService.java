@@ -1,7 +1,6 @@
 package com.nhnacademy.edu.springframework.messageSender.service;
 
-import com.nhnacademy.edu.springframework.messageSender.User;
-import org.springframework.stereotype.Service;
+import com.nhnacademy.edu.springframework.messageSender.domain.User;
 
 public class MessageSendService {
     private MessageSender messageSender;

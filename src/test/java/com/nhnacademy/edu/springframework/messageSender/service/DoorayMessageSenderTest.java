@@ -1,7 +1,7 @@
 package com.nhnacademy.edu.springframework.messageSender.service;
 
 import com.nhn.dooray.client.DoorayHookSender;
-import com.nhnacademy.edu.springframework.messageSender.User;
+import com.nhnacademy.edu.springframework.messageSender.domain.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -2,7 +2,7 @@ package com.nhnacademy.edu.springframework.messageSender.service;
 
 import com.nhn.dooray.client.DoorayHook;
 import com.nhn.dooray.client.DoorayHookSender;
-import com.nhnacademy.edu.springframework.messageSender.User;
+import com.nhnacademy.edu.springframework.messageSender.domain.User;
 import com.nhnacademy.edu.springframework.messageSender.annotaion.Auditable;
 import org.springframework.beans.factory.annotation.Value;
 
