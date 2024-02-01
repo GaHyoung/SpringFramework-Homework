@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
 @Aspect
-@Component
 public class ExecutionTimeAspect {
 
     @Around("@annotation(auditable)")
@@ -17,8 +16,7 @@ public class ExecutionTimeAspect {
         stopWatch.start();
 
         try{
-            Object executionTime = joinPoint.proceed();
-            return executionTime;
+            return joinPoint.proceed();
         }catch (Throwable throwable){
             System.out.println(throwable.getMessage());
             throw throwable;
