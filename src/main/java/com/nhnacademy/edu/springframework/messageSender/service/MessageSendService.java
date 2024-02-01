@@ -1,11 +1,9 @@
 package com.nhnacademy.edu.springframework.messageSender.service;
 
-import com.nhnacademy.edu.springframework.messageSender.User;
-import org.springframework.stereotype.Service;
+import com.nhnacademy.edu.springframework.messageSender.domain.User;
 
-@Service
 public class MessageSendService {
-    private MessageSender messageSender;
+    private final MessageSender messageSender;
 
     public MessageSendService(MessageSender messageSender) {
         this.messageSender = messageSender;
