@@ -3,7 +3,6 @@ package com.nhnacademy.edu.springframework.messageSender.service;
 import com.nhnacademy.edu.springframework.messageSender.User;
 import org.springframework.stereotype.Service;
 
-@Service
 public class MessageSendService {
     private MessageSender messageSender;
 

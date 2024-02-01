@@ -4,13 +4,8 @@ import com.nhn.dooray.client.DoorayHook;
 import com.nhn.dooray.client.DoorayHookSender;
 import com.nhnacademy.edu.springframework.messageSender.User;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Component;
 
-@Component
-@PropertySource("classpath:dooray.properties")
 public class DoorayMessageSender implements MessageSender{
-
 
     @Value("${name}")
     private String name;
