@@ -2,27 +2,34 @@ package com.nhnacademy.edu.springframework.messageSender.service;
 
 import com.nhn.dooray.client.DoorayHook;
 import com.nhn.dooray.client.DoorayHookSender;
+import com.nhnacademy.edu.springframework.messageSender.User;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 
 @Component
+@PropertySource("classpath:dooray.properties")
 public class DoorayMessageSender implements MessageSender{
 
-    @Value("${hookUrl}")
-    private String hookUrl;
+
     @Value("${name}")
     private String name;
 
     @Value("${talk}")
     private String talk;
 
+    private final DoorayHookSender doorayHookSender;
+
+    public DoorayMessageSender(DoorayHookSender doorayHookSender) {
+        this.doorayHookSender = doorayHookSender;
+    }
+
     @Override
     public void sendMessage(User user, String message) {
-        new DoorayHookSender(new RestTemplate(), hookUrl)
+            doorayHookSender
                 .send(DoorayHook.builder()
-                        .botName(name)
-                        .text(talk)
-                        .build());
+                .botName(name)
+                .text(talk)
+                .build());
     }
 }

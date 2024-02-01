@@ -3,7 +3,6 @@ package com.nhnacademy.edu.springframework.messageSender;
 
 import com.nhnacademy.edu.springframework.messageSender.config.DoorayConfig;
 import com.nhnacademy.edu.springframework.messageSender.service.MessageSendService;
-import com.nhnacademy.edu.springframework.messageSender.service.User;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {

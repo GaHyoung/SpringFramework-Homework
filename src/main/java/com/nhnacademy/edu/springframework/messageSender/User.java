@@ -1,4 +1,4 @@
-package com.nhnacademy.edu.springframework.messageSender.service;
+package com.nhnacademy.edu.springframework.messageSender;
 
 public class User {
 
