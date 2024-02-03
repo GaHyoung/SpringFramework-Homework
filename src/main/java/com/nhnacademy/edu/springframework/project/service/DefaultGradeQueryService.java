@@ -17,7 +17,6 @@ public class DefaultGradeQueryService implements GradeQueryService {
                 .map(Student::getSeq)
                 .collect(Collectors.toList());
 
-
         Scores scores = CsvScores.getInstance();
 
         List<Score> scoreList = scores.findAll();
