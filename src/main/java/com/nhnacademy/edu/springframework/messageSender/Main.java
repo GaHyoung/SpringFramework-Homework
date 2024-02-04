@@ -17,7 +17,7 @@ public class Main {
         try(AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DoorayConfig.class)){
             MessageSendService messageSendService = context.getBean(MessageSendService.class);
             messageSendService.doMessage(user, message);
-        }catch (Exception e){
+        } catch (Exception e){
             System.out.println(e.getMessage());
         }
 
