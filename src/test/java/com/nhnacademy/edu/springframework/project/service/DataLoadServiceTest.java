@@ -1,33 +1,34 @@
 package com.nhnacademy.edu.springframework.project.service;
 
+import com.nhnacademy.edu.springframework.project.config.MainConfig;
 import com.nhnacademy.edu.springframework.project.repository.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import java.util.Collection;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringJUnitConfig(classes = {MainConfig.class})
 class DataLoadServiceTest {
+    @Autowired
+    CsvDataLoadService csvDataLoadService;
+    @Autowired
+    private CsvScores scoreReposiory;
+    @Autowired
+    private CsvStudents studentRepository;
 
-    DataLoadService csvDataLoadService;
-
-    @BeforeEach
-    void setUP(){
-        csvDataLoadService = new CsvDataLoadService();
-    }
 
     @Test
     void loadAndMerge() {
 
         csvDataLoadService.loadAndMerge();
 
-        Students students = CsvStudents.getInstance();
-        Collection<Student> mergedStudents = students.findAll();
+        Collection<Student> mergedStudents = studentRepository.findAll();
 
-        Scores scores = CsvScores.getInstance();
-        Collection<Score> mergedScores = scores.findAll();
+        Collection<Score> mergedScores = scoreReposiory.findAll();
 
         Student studentWithScore = mergedStudents.stream()
                 .filter(student -> student.getSeq() == 3)

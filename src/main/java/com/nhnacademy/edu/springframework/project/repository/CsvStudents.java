@@ -1,27 +1,19 @@
 package com.nhnacademy.edu.springframework.project.repository;
 
 import com.nhnacademy.edu.springframework.project.service.Student;
+import org.springframework.stereotype.Repository;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-
+@Repository
 public class CsvStudents implements Students {
 
-    private static CsvStudents csvStudentsInstance;
     private static final List<Student> students = new ArrayList<>();
-    private static final String resourecsPath = "data/student.csv";
+    private static final String resourecesPath = "data/student.csv";
 
-
-    public static Students getInstance() {
-
-        if(csvStudentsInstance == null){
-            csvStudentsInstance = new CsvStudents();
-        }
-        return csvStudentsInstance;
-    }
 
     @Override
     public void load() {
@@ -29,7 +21,7 @@ public class CsvStudents implements Students {
         String line = "";
 
         try {
-            br = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream(resourecsPath)));
+            br = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream(resourecesPath)));
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
                 int seq = Integer.parseInt(data[0]);

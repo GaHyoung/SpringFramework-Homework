@@ -1,25 +1,17 @@
 package com.nhnacademy.edu.springframework.project.repository;
 
+import org.springframework.stereotype.Repository;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class CsvScores implements Scores {
 
-    private static CsvScores csvScoresInstance;
     private static final List<Score> scores = new ArrayList<>();
 
-    private static final String resourecsPath = "data/score.csv";
-    private CsvScores(){}
-
-
-    public static Scores getInstance() {
-
-        if(csvScoresInstance == null){
-            csvScoresInstance = new CsvScores();
-        }
-        return csvScoresInstance;
-    }
+    private static final String resourecesPath = "data/score.csv";
 
     @Override
     public void load() {
@@ -27,7 +19,7 @@ public class CsvScores implements Scores {
         String line = "";
 
         try {
-            br = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream(resourecsPath)));
+            br = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream(resourecesPath)));
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
                 int seq = Integer.parseInt(data[0]);

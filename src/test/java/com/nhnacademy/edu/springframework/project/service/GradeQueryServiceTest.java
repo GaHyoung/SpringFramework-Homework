@@ -1,27 +1,29 @@
 package com.nhnacademy.edu.springframework.project.service;
 
+import com.nhnacademy.edu.springframework.project.config.MainConfig;
 import com.nhnacademy.edu.springframework.project.repository.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import java.util.Collection;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringJUnitConfig(classes = {MainConfig.class})
 class GradeQueryServiceTest {
-
+    @Autowired
     GradeQueryService gradeQueryService;
+    @Autowired
     Students students;
+    @Autowired
     Scores scores;
 
 
     @BeforeEach
     void setUP(){
-        gradeQueryService = new DefaultGradeQueryService();
-        students = CsvStudents.getInstance();
-        scores = CsvScores.getInstance();
-
     }
 
     @Test
