@@ -16,6 +16,8 @@ public class Main {
         try(ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml")){
             MessageSendService messageSendService = context.getBean("messageSendService", MessageSendService.class);
             messageSendService.doMessage(user, message);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
 
     }
